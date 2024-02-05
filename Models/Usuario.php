@@ -113,5 +113,5 @@ class Usuario extends Conectar
         $sql->bindValue(1, $usu_id);
         $sql->execute();
         return $resultado = $sql->fetchAll();        
-    }
+    } 
 }

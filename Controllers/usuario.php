@@ -24,7 +24,7 @@ switch ($_GET["op"]) {
             if ($row["ID_roles"]=="1"){
                 $sub_array[] = '<span class="badge badge-warning">Administrador</span>';
             }else{
-                $sub_array[] = '<span class="class="badge badge-success">Editor</span>';
+                $sub_array[] = '<span class="badge badge-success">Editor</span>';
             }
 
 
