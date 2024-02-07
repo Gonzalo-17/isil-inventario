@@ -1,7 +1,6 @@
 <?php
 class Usuario extends Conectar
 {
-
     public function login()
     {
         //TODO: Establecemos una conexión a la base de datos
@@ -48,37 +47,37 @@ class Usuario extends Conectar
         }
     }
 
-    public function insert_usuario($usu_rol, $usu_nombre, $usu_apellido, $usu_correo, $usu_celular, $usu_usuario, $usu_password)
+    public function insert_usuario($ID_roles, $Nombre, $Apellidos, $Correo, $Numero, $Usuario, $Contraseña)
     {
         $conectar= parent::conexion();
         parent::set_names();
         $sql = "INSERT INTO usuario (ID_usuario, ID_roles, Nombre, Apellidos, Correo, Numero, Usuario, Contraseña) VALUES (NULL,?, ?, ?, ?, ?, ?,MD5(?));";
         $sql = $conectar->prepare($sql);
-        $sql->bindValue(1, $usu_rol);
-        $sql->bindValue(2, $usu_nombre);
-        $sql->bindValue(3, $usu_apellido);
-        $sql->bindValue(4, $usu_correo);
-        $sql->bindValue(5, $usu_celular);
-        $sql->bindValue(6, $usu_usuario);
-        $sql->bindValue(7, $usu_password);
+        $sql->bindValue(1, $ID_roles);
+        $sql->bindValue(2, $Nombre);
+        $sql->bindValue(3, $Apellidos);
+        $sql->bindValue(4, $Correo);
+        $sql->bindValue(5, $Numero);
+        $sql->bindValue(6, $Usuario);
+        $sql->bindValue(7, $Contraseña);
         $sql->execute();
         return $resultado = $sql->fetch();        
     }
 
-    public function update_usuario($usu_id, $usu_rol, $usu_nombre, $usu_apellido, $usu_correo, $usu_celular, $usu_usuario, $usu_password)
+    public function update_usuario($ID_roles, $Nombre, $Apellidos, $Correo, $Numero, $Usuario, $Contraseña,$ID_usuario)
     {
         $conectar= parent::conexion();
         parent::set_names();
         $sql = "UPDATE usuario SET ID_roles=?, Nombre=?, Apellidos=?, Correo=?, Numero=?, Usuario=?, Contraseña=MD5(?) WHERE ID_usuario=?";
         $sql = $conectar->prepare($sql);
-        $sql->bindValue(1, $usu_rol);
-        $sql->bindValue(2, $usu_nombre);
-        $sql->bindValue(3, $usu_apellido);
-        $sql->bindValue(4, $usu_correo);
-        $sql->bindValue(5, $usu_celular);
-        $sql->bindValue(6, $usu_usuario);
-        $sql->bindValue(7, $usu_password);
-        $sql->bindValue(8, $usu_id);
+        $sql->bindValue(1, $ID_roles);
+        $sql->bindValue(2, $Nombre);
+        $sql->bindValue(3, $Apellidos);
+        $sql->bindValue(4, $Correo);
+        $sql->bindValue(5, $Numero);
+        $sql->bindValue(6, $Usuario);
+        $sql->bindValue(7, $Contraseña);
+        $sql->bindValue(8, $ID_usuario);
         $sql->execute();
         return $resultado = $sql->fetch();        
     }
