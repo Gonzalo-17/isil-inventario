@@ -82,13 +82,13 @@ class Usuario extends Conectar
         return $resultado = $sql->fetch();        
     }
 
-    public function delete_usuario($usu_id)
+    public function delete_usuario($ID_usuario)
     {
         $conectar= parent::conexion();
         parent::set_names();
         $sql = "DELETE FROM usuario WHERE ID_usuario=?";
         $sql = $conectar->prepare($sql);
-        $sql->bindValue(1, $usu_id);
+        $sql->bindValue(1, $ID_usuario);
         $sql->execute();
         return $resultado = $sql->fetch();        
     }
@@ -103,13 +103,13 @@ class Usuario extends Conectar
         return $resultado = $sql->fetchAll();        
     }
 
-    public function get_usuario_por_id($usu_id)
+    public function get_usuario_por_id($ID_usuario)
     {
         $conectar= parent::conexion();
         parent::set_names();
         $sql = "SELECT * FROM usuario WHERE ID_usuario=?";
         $sql = $conectar->prepare($sql);
-        $sql->bindValue(1, $usu_id);
+        $sql->bindValue(1, $ID_usuario);
         $sql->execute();
         return $resultado = $sql->fetchAll();        
     } 

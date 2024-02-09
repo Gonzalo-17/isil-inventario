@@ -1,4 +1,4 @@
-"use strict";
+
 var tabla = (function () {
   var initTable1 = function () {
     var table = $("#lista_data");
@@ -33,6 +33,7 @@ var tabla = (function () {
     },
   };
 })();
+
 jQuery(document).ready(function () {
   tabla.init();
 });
@@ -42,7 +43,7 @@ function guardaryeditar(e){
   e.preventDefault();
 var formData = new FormData($("#usuario_form")[0]);
   $.ajax({
-      url: "../../Controller/usuario.php?op=guardaryeditar",
+      url: "../../Controllers/usuario.php?op=guardaryeditar",
       type: "POST",
       data: formData,
       contentType: false,
@@ -66,7 +67,7 @@ var formData = new FormData($("#usuario_form")[0]);
 function editar(ID_usuario){
   $('#mdltitulo').html('Editar Registro');
 
-  $.post("../../Controller/usuario.php?op=mostrar", {ID_usuario : ID_usuario}, function (data) {
+  $.post("../../Controllers/usuario.php?op=mostrar", {ID_usuario : ID_usuario}, function (data) {
       data = JSON.parse(data);
       $('#usu_id').val(data.usu_id);
       $('#usu_nom').val(data.usu_nom);
@@ -89,13 +90,12 @@ function eliminar(ID_usuario) {
       showCancelButton: true,
       confirmButtonClass: "btn-danger",
       confirmButtonText: "Si",
-      cancelButtonText: "No",
-      closeOnConfirm: false,
+      cancelButtonText: "No",     
     },
     function (isConfirm) {
       if (isConfirm) {
         $.post(
-          "../../Controller/usuario.php?op=eliminar",
+          "../../Controllers/usuario.php?op=eliminar",
           { ID_usuario: ID_usuario },
           function (data) {}
         );
@@ -112,3 +112,5 @@ function eliminar(ID_usuario) {
     }
   );
 }
+
+
