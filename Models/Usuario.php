@@ -16,7 +16,7 @@ class Usuario extends Conectar
             //TODO: Si ambos campos no están vacíos
             if (empty($Usuario) and empty($Password)) {
                 //TODO: Redirigimos al usuario de vuelta a la página de inicio de sesión con un mensaje de error
-                header("Location:" . conectar::ruta() . "/views/login/index.php?m=2");
+                header("Location:" . conectar::ruta() . "views/login/index.php?m=2");
                 exit();
             } else {
                 //TODO: Preparamos una consulta SQL para obtener los datos del usuario que intenta iniciar sesión.
@@ -40,7 +40,7 @@ class Usuario extends Conectar
                     exit();
                 } else {
                     //TODO: Si las credenciales no son válidas, redirigimos al usuario de vuelta a la página de inicio de sesión con un mensaje de error
-                    header("Location:" . conectar::ruta() . "/views/login/index.php?m=1");
+                    header("Location:" . conectar::ruta() . "views/login/index.php?m=1");
                     exit();
                 }
             }
